@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-to-1 Video Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loginPage" style="display:block;">
+        <h2>Login to Chat</h2>
+        <input type="text" id="username" placeholder="Enter your name" onkeypress="handleKeyPress(event)">
+        <button onclick="login()">Login</button>
+        <p id="loginError" style="display:none;">Please enter a username!</p>
+    </div>
+    <div id="chatPage" style="display:none;">
+        <h1>1-to-1 Video Chat</h1>
+        <div class="video-container">
+            <video id="localVideo" autoplay playsinline></video>
+            <p id="localName"></p> <!-- Local user's name displayed here -->
+        </div>
+        <div class="video-container">
+            <video id="remoteVideo" autoplay playsinline></video>
+            <p id="remoteName"></p> <!-- Remote user's name displayed here -->
+        </div>
+        <p id="callStatus">Waiting for connection...</p>
+        <button id="muteAudio">Mute Audio</button>
+        <button id="toggleVideo">Toggle Video</button>
+    </div>
+    <!-- Include the socket.io library -->
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Link to your main.js file -->
+    <script src="main.js"></script>
+</body>
+</html>
